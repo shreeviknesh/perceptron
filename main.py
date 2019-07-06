@@ -15,7 +15,7 @@ X = [[0.25, 0.353],
      [1, 1]]
 Y = [0, 1, 0, 1, 0, 1, 0, 1]
 
-W, b = train(X, Y, learning_rate=0.05)
+W, b = train(X, Y, learning_rate=0.1)
 
 # Checking if the converged values are correct
 print('Prediction is correct?', predict(X, W, b) == Y)
