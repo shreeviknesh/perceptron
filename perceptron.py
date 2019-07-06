@@ -2,10 +2,10 @@ import numpy as np
 
 # Defining the activation function
 def activation_function(value):
-    if value >= 0:
-        return 0
-    else:
+    if value >= 1:
         return 1
+    else:
+        return 0
 
 # The main train loop
 def train(X, Y, learning_rate=0.01, max_iterations=500):
@@ -31,11 +31,11 @@ def train(X, Y, learning_rate=0.01, max_iterations=500):
             net = np.dot(W, X[i]) + b
             Yhat = activation_function(net)
 
-            if Y[i] > Yhat:
+            if Yhat > Y[i]:
                 W = W - learning_rate * X[i]
                 flag = False
                 break
-            elif Y[i] < Yhat:
+            elif Yhat < Y[i]:
                 W = W + learning_rate * X[i]
                 flag = False
                 break
