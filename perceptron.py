@@ -2,7 +2,7 @@ import numpy as np
 
 # Defining the activation function
 def activation_function(value):
-    if value >= 1:
+    if value >= 0:
         return 1
     else:
         return 0
@@ -33,10 +33,12 @@ def train(X, Y, learning_rate=0.01, max_iterations=500):
 
             if Yhat > Y[i]:
                 W = W - learning_rate * X[i]
+                b = b - learning_rate
                 flag = False
                 break
             elif Yhat < Y[i]:
                 W = W + learning_rate * X[i]
+                b = b + learning_rate
                 flag = False
                 break
 
